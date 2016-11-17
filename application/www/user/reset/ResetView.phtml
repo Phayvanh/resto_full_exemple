@@ -1,0 +1,18 @@
+<form data-validate="true" class="form-standard" method="post" action="<?=$requestUrl?>/user/reset">
+    <input type="hidden" value="<?=$UserId?>" name="UserId">
+    <fieldset>
+        <legend>Réinitialisation</legend>
+        <ul>
+            <li>
+                <label for="Password">Nouveau mot de passe :</label>
+                <input id="Password" type="password" name="Password">
+                <input id="test2" type="checkbox"> Montrer
+            </li>
+        </ul>
+    </fieldset>
+    <ul class="liste">
+        <li>
+            <input class="button button-primary" type="submit" name="Enregistrer" value="Enregistrer">
+        </li>
+    </ul>
+</form>

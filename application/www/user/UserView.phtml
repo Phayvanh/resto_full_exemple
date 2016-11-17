@@ -1,0 +1,87 @@
+<form data-validate="true" class="form-standard" method="post" action="<?=$requestUrl?>/user">
+    <div class="error-message hide">
+        <h3>Il y a <span id="js-total-error-count"></span> erreur(s) dans le formulaire</h3>
+        <p><?=$errorMessage?></p>
+    </div>
+    <fieldset>
+        <legend>Identité</legend>
+        <ul>
+            <li>
+                <label for="LastName">Nom :</label>
+                <input data-required data-name="Nom" id="LastName" type="text" name="LastName" value="<?=$LastName?>">
+            </li>
+            <li>
+                <label for="FirstName">Prénom :</label>
+                <input data-required data-name="Prénom" id="FirstName" type="text" name="FirstName" value="<?=$FirstName?>">
+            </li>
+            <li>
+                <label>Date de naissance :</label>
+
+                <select name="Birth-Day">
+                    <?php for($Day = 1; $Day <= 31; $Day++):?>
+                        <option value="<?=$Day?>"><?= $Day; ?></option>
+                    <?php endfor; ?>
+                </select><span> /</span>
+
+                <select name="Birth-Month">
+                    <option value="1">Janvier</option>
+                    <option value="2">Février</option>
+                    <option value="3">Mars</option>
+                    <option value="4">Avril</option>
+                    <option value="5">Mai</option>
+                    <option value="6">Juin</option>
+                    <option value="7">Juillet</option>
+                    <option value="8">Août</option>
+                    <option value="9">Septembre</option>
+                    <option value="10">Octobre</option>
+                    <option value="11">Novembre</option>
+                    <option value="12">Decembre</option>
+                </select><span> /</span>
+
+                <select name="Birth-Year">
+                    <?php for($Year = 1945; $Year <= date('Y')-18; $Year++):?>
+                        <option value="<?=$Year?>"><?= $Year; ?></option>
+                    <?php endfor; ?>
+                </select>
+            </li>
+            <li>
+                <label for="Address">Adresse :</label>
+                <textarea id="Address" name="Address"><?=$Address?></textarea>
+            </li>
+            <li>
+                <label for="City">Ville :</label>
+                <input id="City" type="text" name="City" value="<?=$City?>">
+            </li>
+            <li>
+                <label for="ZipCode">Code Postal :</label>
+                <input data-type="number" data-name="Code Postal" class="zip-code" id="ZipCode" type="text" name="ZipCode" value="<?=$ZipCode?>">
+            </li>
+            <li>
+                <label for="Phone">Téléphone :</label>
+                <input data-type="number" data-name="Téléphone" class="Phone" id="Phone" type="text" name="Phone" value="<?=$Phone?>">
+            </li>
+    </fieldset>
+    <fieldset>
+        <legend>Informations d'authentification</legend>
+        <ul>
+            <li>
+                <label for="Email">Email :</label>
+                <input data-required data-name="Email" id="Email" type="email" name="Email" value="<?=$Email?>">
+            </li>
+            <li>
+                <label for="Password">Mot de passe :</label>
+                <input data-required data-name="Mot de passe" data-length="6" id="Password" type="password" name="Password">
+                <input id="test2" type="checkbox"> Montrer
+            </li>
+        </ul>
+    </fieldset>
+        <ul class="liste">
+            <li>
+                <input class="button button-primary" type="submit" name="create" value="Créer le compte">
+            </li>
+            <li>
+                <a class="button button-cancel small" href="<?= $requestUrl ?>">Annuler</a>
+            </li>
+        </ul>
+
+</form>

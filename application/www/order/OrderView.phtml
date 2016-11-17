@@ -1,0 +1,83 @@
+<form data-validate="true" id="js-order-form" class="form-order hide" method="post" action="<?=$requestUrl?>/order">
+    <div class="error-message hide">
+        <h3>Il y a <span id="js-total-error-count"></span> erreur(s) dans le formulaire</h3>
+        <p><?=$errorMessage?></p>
+    </div>
+
+    <input type="hidden" name="orderId" value="<?=$orderId?>">
+    <input type="hidden" name="unitPrice" id="js-unit-price">
+
+    <fieldset>
+    <legend>Ajouter un article</legend>
+    <ul>
+        <li>
+        <label for="js-meal">Nom :</label>
+        <select id="js-meal" name="meal">
+            <?php foreach($mealModel->listAll() as $meal):?>
+                <option value="<?=$meal['Id']?>"><?=$meal['Name']?></option>
+            <?php endforeach ?>
+        </select>
+        </li>
+        <li>
+        <figure id="js-meal-details">
+            <img src="">
+            <p></p>
+            <span>Prix : <strong></strong> €</span>
+        </figure>
+        </li>
+        <li>
+        <label for="quantity">Quantité :</label>
+        <input data-required data-name="quantité" class="quantity" data-type="positive-integer" type="text" name="quantity" id="quantity" maxlength="2">
+        </li>
+        <li>
+        <input class="button" type="submit" value="Ajouter" name="action">
+        </li>
+    </ul>
+    </fieldset>
+
+    <fieldset>
+        <legend>Récapitulatif de la commande</legend>
+        <table class="order-details">
+            <?php if($basketSession->isBasketEmpty()): ?>
+            <tbody>
+                <tr>
+                    <td colspan="5" id="js-basket-empty">Votre panier est vide...</td>
+                </tr>
+            </tbody>
+            <?php else : ?>
+            <thead>
+                <tr>
+                    <th>Quantité</th>
+                    <th>Nom</th>
+                    <th>Prix Unitaire</th>
+                    <th>Prix Total</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            <?php foreach($basketSession->getBasket() as $basketItem): ?>
+                <tr>
+                    <td><?=$basketItem['quantity']?></td>
+                    <td><?=$mealModel->findMealName($basketItem['mealId'])?></td>
+                    <td><?=$basketItem['unitPrice']?></td>
+                    <td><?=number_format(($basketItem['quantity']*$basketItem['unitPrice']),2,',',' ')?> €</td>
+                    <td><a href="<?=$requestUrl?>/basket/delete?id=<?=$basketItem['id']?>&orderId=<?=$orderId?>">x</a></td>
+                </tr>
+            <?php endforeach ?>
+            </tbody>
+            <?php endif ?>
+        </table>
+    </fieldset>
+</form>
+
+<form data-validate="false" class="form-order hide" method="post" action="<?=$requestUrl?>/order">
+    <input type="hidden" name="orderId" value="<?=$orderId?>">
+    <ul class="link-list">
+        <li>
+            <input class="button button-primary" type="submit" name="action" value="Commander" id="js-order">
+        </li>
+        <li>
+            <a class="button button-cancel small" href="<?= $requestUrl ?>">Annuler</a>
+        </li>
+    </ul>
+</form>

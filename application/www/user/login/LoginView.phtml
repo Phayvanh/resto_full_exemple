@@ -1,0 +1,29 @@
+<form data-validate="true" class="form-standard" method="post" action="<?=$requestUrl?>/user/login">
+    <div class="error-message hide">
+        <h3>Il y a <span id="js-total-error-count"></span> erreur(s) dans le formulaire</h3>
+        <p><?=$errorMessage?></p>
+    </div>
+    <fieldset>
+        <legend>Informations d'authentification</legend>
+        <ul>
+            <li>
+                <label for="Email">Email :</label>
+                <input  data-required data-name="Email" id="Email" type="email" name="Email" value="<?=$Email?>">
+            </li>
+            <li>
+                <label for="Password">Mot de passe :</label>
+                <input data-required data-name="Password" id="Password" type="password" name="Password">
+                <input id="test2" type="checkbox"> Montrer
+            </li>
+        </ul>
+    </fieldset>
+    <ul class="liste">
+        <li>
+            <input class="button button-primary" type="submit" name="connexion" value="Connexion">
+        </li>
+        <li>
+            <a class="button button-cancel small" href="<?= $requestUrl ?>">Accueil</a>
+        </li>
+    </ul>
+    <a class="forgot" href="<?=$requestUrl?>/user/forgot">mot de passe oublié ?</a>
+</form>

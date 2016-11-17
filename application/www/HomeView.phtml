@@ -1,0 +1,27 @@
+<?php if($success == true): ?>
+    <div id="js-notice" class="notice">
+        <?= $what ?>
+    </div>
+<?php endif ?>
+
+
+<table class="table-order">
+
+    <caption><h1>Carte du Restaurant</h1></caption>
+
+    <tbody>
+    <!-- Boucle pour récupérer les données de la table Meal -->
+    <?php foreach($meals as $meal):?>
+        <tr>
+            <td class="table-img"><img src="<?=$wwwUrl?>/images/meals/<?= $meal['Photo'] ?>" alt="<?= $meal['Name'] ?>"></td>
+            <td class="table-description">
+                <strong><?= $meal['Name'] ?></strong>
+                <p><?= $meal['Description'] ?></p>
+            </td>
+            <td class="table-price"><?= number_format($meal['SalePrice'],2,',',' ');?> €</td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+
+</table>
+

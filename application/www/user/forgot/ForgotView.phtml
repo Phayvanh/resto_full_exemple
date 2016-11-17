@@ -1,0 +1,19 @@
+<form data-validate="true" class="form-standard" method="post" action="<?=$requestUrl?>/user/forgot">
+    <fieldset>
+        <legend>Email d'authentification</legend>
+        <ul>
+            <li>
+                <label for="Email">Email :</label>
+                <input id="Email" type="email" name="Email">
+            </li>
+        </ul>
+    </fieldset>
+    <ul class="liste">
+        <li>
+            <input class="button button-primary" type="submit" name="Réinitialiser" value="Réinitialiser le mot de passe">
+        </li>
+        <li>
+            <a class="button button-cancel small" href="<?= $requestUrl ?>">Accueil</a>
+        </li>
+    </ul>
+</form>

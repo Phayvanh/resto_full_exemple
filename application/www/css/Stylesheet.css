@@ -1,0 +1,195 @@
+/*****************               Généralité        **********************/
+a{
+    text-decoration: none;
+}
+
+input,textarea{
+    border: 1px solid #ccc;
+}
+
+input[type="submit"]:disabled{
+    background-color: #c0c0c0;
+}
+
+label{
+    display: inline-block;
+}
+
+textarea{
+    resize: none;
+}
+
+ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/**********************************************************************/
+.button{
+    color: #000;
+    background-color: #FF7200;
+    padding: 0.50em 1em;
+    border: none;
+    box-shadow: 1px 1px 1px #000;
+}
+
+.button-cancel{
+    margin-left: 3.5em;
+}
+
+.error-message{
+    border: solid 2px red;
+    background-color: #FF6633;
+    padding: 3px;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.error-message h3{
+    margin-top: 0;
+}
+
+.form-order{
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.form-order figure{
+    background-color: #c0c0c0;
+    padding: 10px;
+}
+
+.form-order li{
+    margin-bottom: 10px;
+}
+
+.form-standard{
+    width: 500px;
+    margin: 0 auto;
+    background-color: #027381;
+    padding: 10px;
+}
+
+.form-standard label{
+    width: 30%;
+}
+
+.form-standard li{
+    margin-bottom: 10px;
+}
+
+.form-standard legend{
+    background-color: #F6B618;
+    padding: 0 10px;
+}
+
+.form-standard fieldset{
+    margin-bottom: 10px;
+    background-color: #B1CA2A;
+    padding: 10px;
+    border: none;
+    box-shadow: 1px 1px 1px #000;
+}
+
+.forgot{
+    text-decoration: underline;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.forgot:hover{
+    color: #FFF;
+}
+
+.liste{
+    text-align: center;
+}
+
+.liste li{
+    display: inline-block;
+}
+
+.link-list{
+    position: relative;
+    padding: 10px;
+}
+
+.link-list li,p{
+    display: inline-block;
+}
+
+.hide{
+    display: none;
+}
+
+.layout-right{
+    position: absolute;
+    right: 10px;
+    top: -8px;
+}
+
+.notice{
+    background-color: #92FF7F;
+    text-align: center;
+    padding: 10px;
+}
+
+.order-details{
+    width: 100%;
+}
+
+.order-details td{
+    text-align: center;
+}
+
+.Phone{
+    width: 23%;
+}
+
+.quantity{
+    width: 2%;
+}
+
+.small{
+    font-size: 75%;
+}
+
+.table-order{
+    border: 1px solid #000000;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.table-order tr{
+    height: 200px;
+    border: 1px solid #000000;
+}
+
+.table-img img{
+    display: block;
+    width: 100%;
+    height: inherit;
+}
+
+.table-img{
+    width: 200px;
+    height: 200px;
+    border: 1px solid #000000;
+}
+
+.table-description{
+    text-align: center;
+}
+
+.table-price{
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    border: 1px solid #000000;
+}
+
+.zip-code{
+    width: 12%;
+}

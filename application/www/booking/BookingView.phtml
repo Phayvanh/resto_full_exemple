@@ -1,0 +1,69 @@
+<form data-validate="true" class="form-standard" method="post" action="<?=$requestUrl?>/booking">
+    <input type="hidden" name="UserId" value="<?=$userId?>">
+    <fieldset>
+        <legend>Informations</legend>
+        <ul>
+            <li>
+                <label>Date de réservation :</label>
+
+                <select name="Booking-Day">
+                    <?php for($Day = 1; $Day <= 31; $Day++):?>
+                        <option value="<?=$Day?>"><?= $Day; ?></option>
+                    <?php endfor; ?>
+                </select><span> /</span>
+
+                <select name="Booking-Month">
+                    <option value="1">Janvier</option>
+                    <option value="2">Février</option>
+                    <option value="3">Mars</option>
+                    <option value="4">Avril</option>
+                    <option value="5">Mai</option>
+                    <option value="6">Juin</option>
+                    <option value="7">Juillet</option>
+                    <option value="8">Août</option>
+                    <option value="9">Septembre</option>
+                    <option value="10">Octobre</option>
+                    <option value="11">Novembre</option>
+                    <option value="12">Decembre</option>
+                </select><span> /</span>
+
+                <select name="Booking-Year">
+                    <?php for($Year = date('Y'); $Year <= date('Y')+5; $Year++):?>
+                        <option value="<?=$Year?>"><?= $Year; ?></option>
+                    <?php endfor; ?>
+                </select>
+            </li>
+            <li>
+                <label>Heure de réservation :</label>
+                <select name="Booking-Hours">
+                    <?php for($hour = 9; $hour <= 23; $hour++):?>
+                        <option value="<?=$hour?>"><?= $hour; ?></option>
+                    <?php endfor; ?>
+                </select><span> H </span>
+                <select name="Booking-Minutes">
+                    <option value="00">00</option>
+                    <option value="15">15</option>
+                    <option value="30">30</option>
+                    <option value="45">45</option>
+                </select>
+            </li>
+            <li>
+                <label>Nombre de couverts :</label>
+                <select name="Booking-Table">
+                    <?php for($table = 1; $table <= 8; $table++):?>
+                        <option value="<?=$table?>"><?= $table; ?></option>
+                    <?php endfor; ?>
+                </select>
+            </li>
+        </ul>
+    </fieldset>
+    <ul class="liste">
+        <li>
+            <input class="button button-primary" type="submit" name="reserved" value="Réserver">
+        </li>
+        <li>
+            <a class="button button-cancel small" href="<?= $requestUrl ?>">Annuler</a>
+        </li>
+    </ul>
+
+</form>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>3W Restaurant</title>
+    <!-- Feuilles de styles à ajouter ici -->
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/normalize.min.css">
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/stylesheet.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+    <script src="<?=$wwwUrl?>/js/utilities.js"></script>
+    <script src="<?=$wwwUrl?>/js/classes/FormValidator.class.js"></script>
+</head>
+<body>
+
+    <!-- En-tête commune -->
+    <header>
+        <h1>
+        </h1>
+    </header>
+
+    <!-- Interface utilisateur -->
+    <nav>
+        <hr>
+        <ul class="link-list">
+            <?php if($userSession->IsAuthenticated() == true):?>
+            <li>
+                <a class="button" href="<?=$requestUrl?>/booking">résérver</a>
+                <a class="button" href="<?=$requestUrl?>/order">commander</a>
+            </li>
+            <li class="layout-right">
+                <p>Bonjour <?=$userSession->GetData('FullName')?></p>
+                <a class="button" href="<?=$requestUrl?>/user/logout">déconnexion</a>
+            </li>
+            <?php else:?>
+            <li><a class="button" href="<?=$requestUrl?>/user">creer un compte</a></li>
+            <li><a class="button" href="<?=$requestUrl?>/user/login">connexion</a></li>
+            <?php endif ?>
+
+        </ul>
+        <hr>
+    </nav>
+
+    <!-- Affichage du template lié à la vue -->
+    <?php include $this->viewData['template'] ?>
+
+    <!-- Pied de page commun -->
+    <footer>
+        <small>Copyright &copy; 2013-2014 les élèves de la 3W Academy</small>
+    </footer>
+
+    <!-- Fichiers JavaScript à ajouter ici -->
+    <script src="<?=$wwwUrl?>/js/showPassword.js"></script>
+    <script src="<?=$wwwUrl?>/js/order.js"></script>
+    <script src="<?=$wwwUrl?>/js/resto.js"></script>
+</body>
+</html>
